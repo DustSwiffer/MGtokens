@@ -1,0 +1,21 @@
+name: MGTokens
+version: ${version}
+main: nl.dustswiffer.mgtokens.MGTokens
+authors: [DustSwiffer]
+description: Made for Equestriworlds.net will give players Tokens for  playing minigames
+website: https://dustswiffer.nl
+commands:
+  tokens:
+    description: tokens
+  tokens [player]:
+    description: tokens [player]
+    permission:  mgtokens.tokens.others
+  tokens take [player] [amount]:
+    description: tokens take [player] [amount]
+    permission:  mgtokens.tokens.take
+  tokens give [player] [amount]:
+    description: tokens give [player] [amount]
+    permission:  mgtokens.tokens.give
+  tokens set [player] [amount]:
+    description: tokens set [player] [amount]
+    permission:  mgtokens.tokens.set
