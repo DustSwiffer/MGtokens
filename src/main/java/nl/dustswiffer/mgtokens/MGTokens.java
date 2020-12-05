@@ -46,6 +46,18 @@ public final class MGTokens extends JavaPlugin {
         password = getConfig().getString("password");
         try {
             openDatabaseConnection();
+
+            Statement statement =  connection.createStatement();
+            try{
+                statement.execute("CREATE TABLE IF NOT EXISTS `mgtokens_accounts` (\n" +
+                                      "  `id` int NOT NULL AUTO_INCREMENT,\n" +
+                                      "  `uuid` varchar(50) DEFAULT NULL,\n" +
+                                      "  `amount` decimal(65,0) NOT NULL DEFAULT '0',\n" +
+                                      "  PRIMARY KEY (`id`)\n" +
+                                      ") ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;");
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
